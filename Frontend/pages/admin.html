@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - SecureCart</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<div class="navbar">
+    <div class="logo">Secure<span>Cart</span> <span style="font-size:13px; font-weight:normal; color:#FF9900;">Admin</span></div>
+    <div class="nav-links">
+        <a href="home.html">Home</a>
+        <a href="products.html">View Store</a>
+        <button onclick="logout()">Logout</button>
+    </div>
+</div>
+
+<div class="container">
+    <h2 class="page-title">Admin Dashboard</h2>
+
+    <div class="admin-form">
+        <h3 id="formTitle">Add new product</h3>
+        <form id="productForm" onsubmit="submitProduct(event)">
+            <input type="text" id="pName" placeholder="Product name" required>
+            <textarea id="pDescription" placeholder="Description" rows="3" required></textarea>
+            <input type="number" id="pPrice" placeholder="Price (₹)" step="0.01" required>
+            <input type="number" id="pStock" placeholder="Stock quantity" required>
+            <input type="text" id="pImageUrl" placeholder="Image URL (optional)">
+            <button type="submit" id="submitBtn">Add product</button>
+            <button type="button" id="cancelBtn" onclick="cancelEdit()">Cancel</button>
+        </form>
+    </div>
+
+    <h2 class="page-title">All products</h2>
+    <div id="adminProducts"></div>
+</div>
+
+<script src="../assets/js/api.js"></script>
+<script src="../assets/js/auth.js"></script>
+<script src="../assets/js/admin.js"></script>
+</body>
+</html>

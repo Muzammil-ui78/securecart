@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - SecureCart</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<div class="navbar">
+    <div class="logo">Secure<span>Cart</span></div>
+</div>
+
+<div class="auth-box">
+    <h2>Create account</h2>
+
+    <label for="name">Your name</label>
+    <input id="name" type="text" placeholder="First and last name">
+
+    <label for="email">Email</label>
+    <input id="email" type="text" placeholder="Enter your email">
+
+    <label for="password">Password</label>
+    <input id="password" type="password" placeholder="At least 6 characters">
+
+    <button onclick="registerUser()">Register</button>
+
+    <p class="switch-link">Already have an account? <a href="login.html">Sign in</a></p>
+</div>
+
+<script src="../assets/js/api.js"></script>
+<script src="../assets/js/auth.js"></script>
+</body>
+</html>

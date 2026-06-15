@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - SecureCart</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<div class="navbar">
+    <div class="logo">Secure<span>Cart</span></div>
+    <div class="nav-links">
+        <a href="home.html">Home</a>
+        <a href="cart.html">Cart</a>
+        <a href="orders.html">Orders</a>
+        <button onclick="logout()">Logout</button>
+    </div>
+</div>
+
+<div class="container">
+    <h2 class="page-title">All Products</h2>
+
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search SecureCart">
+        <input type="number" id="minPrice" placeholder="Min ₹">
+        <input type="number" id="maxPrice" placeholder="Max ₹">
+        <button onclick="searchProducts()">Search</button>
+        <button class="clear" onclick="clearSearch()">Clear</button>
+    </div>
+
+    <p class="product-count" id="productCount"></p>
+    <div id="products"></div>
+</div>
+
+<script src="../assets/js/api.js"></script>
+<script src="../assets/js/auth.js"></script>
+<script src="../assets/js/cart.js"></script>
+<script src="../assets/js/product.js"></script>
+</body>
+</html>

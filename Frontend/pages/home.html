@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureCart</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<div class="navbar">
+    <div class="logo">Secure<span>Cart</span></div>
+    <div class="nav-links">
+        <span class="welcome" id="welcome"></span>
+        <a href="products.html">Products</a>
+        <a href="cart.html">Cart</a>
+        <a href="orders.html">Orders</a>
+        <a href="admin.html" id="adminLink" style="display:none;">Admin</a>
+        <button onclick="logout()">Logout</button>
+    </div>
+</div>
+
+<div class="container">
+    <div class="empty-state" style="padding: 80px 20px;">
+        <h1 style="font-size: 28px; font-weight: 500; margin-bottom: 10px;">Welcome to SecureCart</h1>
+        <p style="margin-bottom: 24px;">Your one-stop shop for everything you need.</p>
+        <a href="products.html"><button style="font-size: 16px; padding: 12px 28px;">Start Shopping</button></a>
+    </div>
+</div>
+
+<script src="../assets/js/api.js"></script>
+<script src="../assets/js/auth.js"></script>
+<script>
+    const name = localStorage.getItem("userName");
+    if (name) {
+        document.getElementById("welcome").textContent = "Hi, " + name;
+    }
+
+    const role = localStorage.getItem("userRole");
+    if (role === "ADMIN") {
+        document.getElementById("adminLink").style.display = "inline-block";
+    }
+</script>
+</body>
+</html>
