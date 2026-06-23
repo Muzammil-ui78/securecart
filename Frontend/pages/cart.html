@@ -20,6 +20,23 @@
 <div class="container">
     <h2 class="page-title">My Cart</h2>
     <div id="cart"></div>
+
+    <div id="checkoutBox" class="checkout-box" style="display:none;">
+        <h3>Checkout</h3>
+
+        <label for="address">Delivery address</label>
+        <textarea id="address" rows="3" placeholder="House no, street, city, pincode"></textarea>
+
+        <label for="paymentMethod">Payment method</label>
+        <select id="paymentMethod">
+            <option value="COD">Cash on Delivery</option>
+            <option value="ONLINE">Online Payment (coming soon)</option>
+        </select>
+
+        <div class="cart-total" id="cartTotal"></div>
+
+        <button onclick="placeOrderFromCart()" style="width:100%; margin-top:10px;">Place Order</button>
+    </div>
 </div>
 
 <script src="../assets/js/api.js"></script>

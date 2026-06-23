@@ -1,6 +1,8 @@
 package com.securecart.securecart.service;
 
 import com.securecart.securecart.model.Order;
+import com.securecart.securecart.model.OrderItem;
+import com.securecart.securecart.repository.OrderItemRepository;
 import com.securecart.securecart.repository.OrderRepository;
 import org.springframework.stereotype.Service;
 import com.securecart.securecart.exception.ResourceNotFoundException;
@@ -12,9 +14,12 @@ import java.util.stream.Collectors;
 public class OrderService {
 
     private final OrderRepository orderRepository;
+    private final OrderItemRepository orderItemRepository;
 
-    public OrderService(OrderRepository orderRepository) {
+    public OrderService(OrderRepository orderRepository,
+                        OrderItemRepository orderItemRepository) {
         this.orderRepository = orderRepository;
+        this.orderItemRepository = orderItemRepository;
     }
 
     public List<Order> getAllOrders() {
@@ -34,16 +39,21 @@ public class OrderService {
 
     public Order getOrderById(Long id) {
         return orderRepository.findById(id)
-                .orElseThrow(() ->
-                        new ResourceNotFoundException("Order not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Order not found"));
     }
 
     public void deleteOrder(Long id) {
-
         if (!orderRepository.existsById(id)) {
             throw new ResourceNotFoundException("Order not found");
         }
-
         orderRepository.deleteById(id);
+    }
+
+    public OrderItem saveOrderItem(OrderItem item) {
+        return orderItemRepository.save(item);
+    }
+
+    public List<OrderItem> getItemsByOrderId(Long orderId) {
+        return orderItemRepository.findByOrderId(orderId);
     }
 }

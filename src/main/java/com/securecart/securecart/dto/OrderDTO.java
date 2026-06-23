@@ -1,5 +1,6 @@
 package com.securecart.securecart.dto;
 
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public class OrderDTO {
@@ -9,19 +10,20 @@ public class OrderDTO {
 
     private Double totalAmount;
 
-    public Long getUserId() {
-        return userId;
-    }
+    @NotBlank(message = "Delivery address is required")
+    private String address;
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
+    private String paymentMethod = "COD";
 
-    public Double getTotalAmount() {
-        return totalAmount;
-    }
+    public Long getUserId() { return userId; }
+    public void setUserId(Long userId) { this.userId = userId; }
 
-    public void setTotalAmount(Double totalAmount) {
-        this.totalAmount = totalAmount;
-    }
+    public Double getTotalAmount() { return totalAmount; }
+    public void setTotalAmount(Double totalAmount) { this.totalAmount = totalAmount; }
+
+    public String getAddress() { return address; }
+    public void setAddress(String address) { this.address = address; }
+
+    public String getPaymentMethod() { return paymentMethod; }
+    public void setPaymentMethod(String paymentMethod) { this.paymentMethod = paymentMethod; }
 }
